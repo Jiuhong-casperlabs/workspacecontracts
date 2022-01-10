@@ -1,12 +1,8 @@
-#![cfg_attr(
-    not(target_arch = "wasm32"),
-    crate_type = "target arch should be wasm32"
-)]
 #![no_std]
 #![no_main]
 
 extern crate alloc;
-use alloc::{collections::BTreeMap, string::String, vec::Vec};
+use alloc::{collections::BTreeMap, string::String};
 
 use casper_contract::contract_api::{runtime, storage};
 
@@ -18,8 +14,8 @@ pub extern "C" fn call() {
     let value2 = (999, false, "world");
     let mut map = BTreeMap::new();
 
-    map.insert(key1.clone(), value1.clone());
-    map.insert(key2.clone(), value2.clone());
+    map.insert(key1, value1);
+    map.insert(key2, value2);
 
     let uref = storage::new_uref(map);
 

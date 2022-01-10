@@ -5,7 +5,7 @@ members = [
     "contracts/storetuple",
     "contracts/accessright",
     "contracts/accessright1",
-    "contracts/ApiError",
+    "contracts/api_error",
     "contracts/erc20_balance_of",
     "contracts/listofkeys",
     "contracts/multiplemaps",
@@ -15,3 +15,6 @@ members = [
     "contracts/storelist",
     "contracts/storemap",
     "contracts/uref"]
+
+[profile.release]
+lto = true 

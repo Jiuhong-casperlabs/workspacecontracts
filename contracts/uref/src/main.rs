@@ -1,19 +1,11 @@
-#![cfg_attr(
-    not(target_arch = "wasm32"),
-    crate_type = "target arch should be wasm32"
-)]
 #![no_std]
 #![no_main]
 
 extern crate alloc;
-use alloc::{collections::BTreeMap, string::String, vec::Vec};
+use alloc::{collections::BTreeMap, string::String};
 
 use casper_contract::contract_api::{runtime, storage};
-use casper_types::{
-    AccessRights,
-    CLType::{self, Tuple3},
-    Key, URef,
-};
+use casper_types::URef;
 
 // All session code must have a `call` entrypoint.
 #[no_mangle]

@@ -3,17 +3,9 @@
 
 extern crate alloc;
 
-use alloc::string::{String, ToString};
-
-use casper_contract::contract_api::{
-    runtime::{self, remove_key},
-    storage,
-};
-use casper_types::{AccessRights, ContractHash, Key, RuntimeArgs, URef, U256, UREF_ADDR_LENGTH};
-use core::convert::{TryFrom, TryInto};
-
-const REPLACEMENT_DATA: &str = "bawitdaba";
-const ARG_CONTRACT_HASH: &str = "contract_hash";
+use casper_contract::contract_api::{runtime, storage};
+use casper_types::{AccessRights, URef};
+use core::convert::TryInto;
 
 #[no_mangle]
 pub extern "C" fn call() {
@@ -36,5 +28,5 @@ pub extern "C" fn call() {
         .unwrap();
     storage::add(aaa, 2);
 
-    let a: i32 = storage::read(aaa).unwrap().unwrap();
+    let _a: i32 = storage::read(aaa).unwrap().unwrap();
 }

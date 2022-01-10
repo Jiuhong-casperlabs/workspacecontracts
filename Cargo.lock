@@ -3,14 +3,6 @@
 version = 3
 
 [[package]]
-name = "ApiError"
-version = "0.1.0"
-dependencies = [
- "casper-contract",
- "casper-types",
-]
-
-[[package]]
 name = "accessright"
 version = "0.1.0"
 dependencies = [
@@ -20,6 +12,14 @@ dependencies = [
 
 [[package]]
 name = "accessright1"
+version = "0.1.0"
+dependencies = [
+ "casper-contract",
+ "casper-types",
+]
+
+[[package]]
+name = "api_error"
 version = "0.1.0"
 dependencies = [
  "casper-contract",
