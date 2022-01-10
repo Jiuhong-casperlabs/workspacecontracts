@@ -1,5 +1,7 @@
+listkeys
+
 casper-client put-deploy --chain-name casper-test \
 --node-address http://16.162.124.124:7777 \
 --secret-key /home/jh/keys/test98/secret_key.pem \
 --session-path /home/jh/rust/workspace/target/wasm32-unknown-unknown/release/listkeys.wasm   \
---payment-amount 32000000000
+--payment-amount 50000000000
