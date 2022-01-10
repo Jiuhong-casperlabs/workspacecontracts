@@ -1,0 +1,17 @@
+[workspace]
+
+members = [
+    "contracts/listkeys",
+    "contracts/storetuple",
+    "contracts/accessright",
+    "contracts/accessright1",
+    "contracts/ApiError",
+    "contracts/erc20_balance_of",
+    "contracts/listofkeys",
+    "contracts/multiplemaps",
+    "contracts/multipletuples",
+    "contracts/remove_key",
+    "contracts/return_resulttype",
+    "contracts/storelist",
+    "contracts/storemap",
+    "contracts/uref"]
