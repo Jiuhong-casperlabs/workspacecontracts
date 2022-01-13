@@ -14,7 +14,9 @@ members = [
     "contracts/return_resulttype",
     "contracts/storelist",
     "contracts/storemap",
-    "contracts/uref"]
+    "contracts/uref",
+    "contracts/dictionary",
+    "contracts/dictionarya"]
 
 [profile.release]
 lto = true 
