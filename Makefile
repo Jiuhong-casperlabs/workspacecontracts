@@ -18,6 +18,25 @@ build-contract:
 	cargo build --release -p uref --target wasm32-unknown-unknown
 	cargo build --release -p dictionary --target wasm32-unknown-unknown
 	cargo build --release -p dictionarya --target wasm32-unknown-unknown
+	cargo build --release -p dictionaries --target wasm32-unknown-unknown
+	wasm-strip target/wasm32-unknown-unknown/release/listkeys.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/storetuple.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/accessright.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/accessright1.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/api_error.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/erc20_balance_of.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/listofkeys.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/multiplemaps.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/multipletuples.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/remove_key.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/return_resulttype.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/storelist.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/storemap.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/uref.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/dictionary.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/dictionarya.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/newdicc.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/newdica.wasm 2>/dev/null | true
 
 clippy:
 	cargo clippy --all-targets --all -- -D warnings -A renamed_and_removed_lints

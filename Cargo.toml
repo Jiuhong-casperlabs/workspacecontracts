@@ -16,7 +16,8 @@ members = [
     "contracts/storemap",
     "contracts/uref",
     "contracts/dictionary",
-    "contracts/dictionarya"]
+    "contracts/dictionarya",
+    "contracts/dictionaries"]
 
 [profile.release]
 lto = true 
