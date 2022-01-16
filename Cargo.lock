@@ -678,6 +678,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "storemultiple"
+version = "0.1.0"
+dependencies = [
+ "casper-contract",
+ "casper-types",
+]
+
+[[package]]
 name = "storetuple"
 version = "0.1.0"
 dependencies = [
@@ -712,6 +720,14 @@ dependencies = [
  "quote",
  "syn",
  "unicode-xid",
+]
+
+[[package]]
+name = "testpackage"
+version = "0.1.0"
+dependencies = [
+ "casper-contract",
+ "casper-types",
 ]
 
 [[package]]

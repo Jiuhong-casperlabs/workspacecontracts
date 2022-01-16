@@ -1,52 +1,64 @@
-***********listkeys start*************
+\***\*\*\*\*\*\***listkeys start**\*\***\***\*\***
 
 casper-client put-deploy --chain-name casper-test \
 --node-address http://16.162.124.124:7777 \
 --secret-key /home/jh/keys/test98/secret_key.pem \
---session-path /home/jh/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/listkeys.wasm   \
+--session-path /home/jh/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/listkeys.wasm \
 --payment-amount 50000000000
 
-***********listkeys end*************
+\***\*\*\*\*\*\***listkeys end**\*\***\***\*\***
 
-***********dictionary***********
-*********under contract start*********
+\***\*\*\*\*\*\***dictionary\***\*\*\*\*\*\*** \***\*\*\*\***under contract start\***\*\*\*\***
 casper-client put-deploy --chain-name casper-test \
 --node-address http://16.162.124.124:7777 \
 --secret-key /home/jh/keys/test98/secret_key.pem \
---session-path /home/jh/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/dictionary.wasm   \
+--session-path /home/jh/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/dictionary.wasm \
 --payment-amount 30000000000
 
 casper-client get-dictionary-item -n http://16.162.124.124:7777 \
 -s 83c63c8d79a35f236e20920783c458d8db42aa2b6f1aa72d4811ae935037202e \
 --contract-hash hash-d5308670dc1583f49a516306a3eb719abe0ba51651cb08e606fcfc1f9b9134cf \
 --dictionary-name dictname \
---dictionary-item-key abcname 
-*********under contract end*********
+--dictionary-item-key abcname \***\*\*\*\***under contract end\***\*\*\*\***
 
-*********under account start*********
+\***\*\*\*\***under account start\***\*\*\*\***
 casper-client put-deploy --chain-name casper-test \
 --node-address http://16.162.124.124:7777 \
 --secret-key /home/jh/keys/test98/secret_key.pem \
---session-path /home/jh/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/dictionarya.wasm   \
+--session-path /home/jh/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/dictionarya.wasm \
 --payment-amount 20000000000
 
 casper-client get-dictionary-item -n http://16.162.124.124:7777 \
 -s 322b8d17faea2ee780b9b952a25a86520d36a78e20113f0658ae0b29a68a7384 \
 --account-hash account-hash-ad7e091267d82c3b9ed1987cb780a005a550e6b3d1ca333b743e2dba70680877 \
 --dictionary-name dict_name \
---dictionary-item-key abc_name 
-*********under account end*********
+--dictionary-item-key abc_name \***\*\*\*\***under account end\***\*\*\*\***
 
-*********under uref start*********
+\***\*\*\*\***under uref start\***\*\*\*\***
 casper-client get-dictionary-item -n http://16.162.124.124:7777 \
 -s 322b8d17faea2ee780b9b952a25a86520d36a78e20113f0658ae0b29a68a7384 \
 --seed-uref "uref-30074a46a79b2d80cff437594d2422383f6c754de453b732448cc711b9f7e129-007" \
---dictionary-item-key abc_name 
-*********under uref end*********
+--dictionary-item-key abc_name \***\*\*\*\***under uref end\***\*\*\*\***
 //note: --seed-uref is "dict_name"
 
-*********under Dictionary start*******
+\***\*\*\*\***under Dictionary start**\*\*\***
 casper-client get-dictionary-item -n http://16.162.124.124:7777 \
 -s 322b8d17faea2ee780b9b952a25a86520d36a78e20113f0658ae0b29a68a7384 \
---dictionary-address dictionary-5d3e90f064798d54e5e53643c4fce0cbb1024aadcad1586cc4b7c1358a530373
-*********under Dictionary end*******
+--dictionary-address dictionary-5d3e90f064798d54e5e53643c4fce0cbb1024aadcad1586cc4b7c1358a530373 \***\*\*\*\***under Dictionary end**\*\*\***
+
+\***\*\*\*\***test package**\*\*\***
+
+casper-client put-deploy --chain-name casper-test \
+--node-address http://16.162.124.124:7777 \
+--secret-key /home/jh/keys/test98/secret_key.pem \
+--session-path /home/jh/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/testpackage.wasm \
+--payment-amount 15000000000
+
+\***\*\*\*\***test package**\*\*\***
+
+**********storemultiple**********
+casper-client put-deploy --chain-name casper-test \
+--node-address http://16.162.124.124:7777 \
+--secret-key /home/jh/keys/test77/secret_key.pem \
+--session-path /home/jh/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/storemultiple.wasm \
+--payment-amount 3000000000
