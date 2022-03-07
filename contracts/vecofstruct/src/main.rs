@@ -27,25 +27,23 @@ use casper_types_derive::{CLTyped, FromBytes, ToBytes};
 #[derive(CLTyped, ToBytes, FromBytes)]
 struct Obj {
     title: String,
-    recipient: Key,
+    recipient: String,
 }
 
 #[no_mangle]
 fn test() {
     let mem1 = Obj {
         title: String::from("kitty"),
-        recipient: Key::from_formatted_str(
+        recipient: String::from(
             "hash-4929e7fcb71772c1cb39ebb702a70d036b0ad4f9caf420d3fd377f749dfdb17",
-        )
-        .unwrap(),
+        ),
     };
 
     let mem2 = Obj {
         title: String::from("kitty"),
-        recipient: Key::from_formatted_str(
+        recipient: String::from(
             "hash-4929e7fcb71772c1cb39ebb702a70d036b0ad4f9caf420d3fd377f749dfdb17",
-        )
-        .unwrap(),
+        ),
     };
 
     let mut vec = Vec::new();
@@ -60,7 +58,7 @@ pub extern "C" fn call() {
     let test_entry_point = EntryPoint::new(
         "test",
         vec![],
-        CLType::List(Box::new(Obj::cl_type())),
+        Vec::<Obj>::cl_type(),
         EntryPointAccess::Public,
         EntryPointType::Contract,
     );
