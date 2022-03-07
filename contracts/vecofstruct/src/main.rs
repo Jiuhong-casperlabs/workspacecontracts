@@ -68,7 +68,9 @@ pub extern "C" fn call() {
     let mut entry_points = EntryPoints::new();
     entry_points.add_entry_point(test_entry_point);
     let (contract_hash, _) = storage::new_locked_contract(entry_points, None, None, None);
-    runtime::put_key("returnvalue", contract_hash.into());
+    runtime::put_key("mycontract", contract_hash.into());
 
-    let _: () = runtime::call_contract(contract_hash, "test", RuntimeArgs::default());
+    let returnvalue: Vec<Obj> =
+        runtime::call_contract(contract_hash, "test", RuntimeArgs::default());
+    runtime::put_key("returnvalue", storage::new_uref(returnvalue).into());
 }
