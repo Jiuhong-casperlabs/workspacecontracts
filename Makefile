@@ -21,6 +21,7 @@ build-contract:
 	cargo build --release -p dictionaries --target wasm32-unknown-unknown
 	cargo build --release -p testpackage --target wasm32-unknown-unknown
 	cargo build --release -p storemultiple --target wasm32-unknown-unknown
+	cargo build --release -p vecofstruct --target wasm32-unknown-unknown
 	wasm-strip target/wasm32-unknown-unknown/release/listkeys.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/storetuple.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/accessright.wasm 2>/dev/null | true
@@ -41,6 +42,7 @@ build-contract:
 	wasm-strip target/wasm32-unknown-unknown/release/newdica.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/testpackage.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/storemultiple.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/vecofstruct.wasm 2>/dev/null | true
 
 clippy:
 	cargo clippy --all-targets --all -- -D warnings -A renamed_and_removed_lints

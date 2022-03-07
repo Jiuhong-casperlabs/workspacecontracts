@@ -8,6 +8,14 @@ casper-client put-deploy --chain-name casper-test \
 
 \***\*\*\*\*\*\***listkeys end**\*\***\***\*\***
 
+\***\*\*\*\*\*\***dictionaryc\***\*\*\*\*\*\*** \***\*\*\*\***under contract start\***\*\*\*\***
+casper-client put-deploy --chain-name casper-test \
+--node-address http://16.162.124.124:7777 \
+--secret-key /home/jh/keys/test98/secret_key.pem \
+--session-path /home/jh/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/newdicc.wasm \
+--payment-amount 30000000000
+
+
 \***\*\*\*\*\*\***dictionary\***\*\*\*\*\*\*** \***\*\*\*\***under contract start\***\*\*\*\***
 casper-client put-deploy --chain-name casper-test \
 --node-address http://16.162.124.124:7777 \

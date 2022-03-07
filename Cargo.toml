@@ -10,6 +10,7 @@ members = [
     "contracts/listofkeys",
     "contracts/multiplemaps",
     "contracts/multipletuples",
+     "contracts/vecofstruct",
     "contracts/remove_key",
     "contracts/return_resulttype",
     "contracts/storelist",
