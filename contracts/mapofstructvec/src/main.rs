@@ -10,11 +10,11 @@ extern crate alloc;
 
 use core::convert::TryInto;
 
-use alloc::boxed::Box;
 use alloc::vec;
 use alloc::vec::Vec;
+use alloc::{boxed::Box, collections::BTreeMap};
 
-use alloc::string::String;
+use alloc::string::{String, ToString};
 
 use casper_contract::{
     contract_api::{
@@ -26,7 +26,7 @@ use casper_contract::{
 use casper_types::{
     CLType, EntryPoint, EntryPointAccess, EntryPointType, EntryPoints, RuntimeArgs, URef,
 };
-use casper_types::{CLTyped, CLValue, Key};
+use casper_types::{CLTyped, CLValue};
 use casper_types_derive::{CLTyped, FromBytes, ToBytes};
 
 #[derive(CLTyped, ToBytes, FromBytes)]
@@ -51,11 +51,34 @@ fn test() {
         ),
     };
 
-    let mut vec = Vec::new();
-    vec.push(mem1);
-    vec.push(mem2);
+    let mem3 = Obj {
+        title: String::from("kitty"),
+        recipient: String::from(
+            "hash-4929e7fcb71772c1cb39ebb702a70d036b0ad4f9caf420d3fd377f749dfdb17",
+        ),
+    };
 
-    runtime::ret(CLValue::from_t(vec).unwrap_or_revert());
+    let mem4 = Obj {
+        title: String::from("kitty"),
+        recipient: String::from(
+            "hash-4929e7fcb71772c1cb39ebb702a70d036b0ad4f9caf420d3fd377f749dfdb17",
+        ),
+    };
+
+    let mut vec1 = Vec::new();
+    vec1.push(mem1);
+    vec1.push(mem2);
+
+    let mut vec2 = Vec::new();
+    vec2.push(mem3);
+    vec2.push(mem4);
+
+    let mut map = BTreeMap::new();
+
+    map.insert("key1".to_string(), vec1);
+    map.insert("key2".to_string(), vec2);
+
+    runtime::ret(CLValue::from_t(map).unwrap_or_revert());
 }
 
 #[no_mangle]
@@ -63,7 +86,10 @@ pub extern "C" fn call() {
     let test_entry_point = EntryPoint::new(
         "test",
         vec![],
-        Vec::<Obj>::cl_type(),
+        CLType::Map {
+            key: Box::new(CLType::String),
+            value: Box::new(Vec::<Obj>::cl_type()),
+        },
         EntryPointAccess::Public,
         EntryPointType::Contract,
     );
@@ -73,12 +99,14 @@ pub extern "C" fn call() {
     let (contract_hash, _) = storage::new_locked_contract(entry_points, None, None, None);
     runtime::put_key("mycontract", contract_hash.into());
 
-    let returnvalue: Vec<Obj> =
+    let returnvalue: BTreeMap<String, Vec<Obj>> =
         runtime::call_contract(contract_hash, "test", RuntimeArgs::default());
     // store value
     runtime::put_key("returnvalue", storage::new_uref(returnvalue).into());
 
     // get value again
     let getkey: URef = runtime::get_key("returnvalue").unwrap().try_into().unwrap();
-    let getvalue: Vec<Obj> = storage::read(getkey).unwrap().unwrap();
+    let getvalue: BTreeMap<String, Vec<Obj>> = storage::read(getkey).unwrap().unwrap();
+    // store value again
+    runtime::put_key("returngetvalue", storage::new_uref(getvalue).into());
 }
