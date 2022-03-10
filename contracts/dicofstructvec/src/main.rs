@@ -73,10 +73,7 @@ fn test() {
     storage::dictionary_put(vec2_uref, "mem3", mem3);
     storage::dictionary_put(vec2_uref, "mem4", mem4);
 
-    let dic_uref = storage::new_dictionary("mydic").unwrap();
-    storage::dictionary_put(dic_uref, "vec1", vec1_uref);
-    storage::dictionary_put(dic_uref, "vec2", vec2_uref);
-    runtime::ret(CLValue::from_t(dic_uref).unwrap_or_revert());
+    runtime::ret(CLValue::from_t(vec![vec1_uref, vec2_uref]).unwrap_or_revert());
 }
 
 #[no_mangle]
@@ -84,7 +81,7 @@ pub extern "C" fn call() {
     let test_entry_point = EntryPoint::new(
         "test",
         vec![],
-        CLType::URef,
+        CLType::List(Box::new(URef::cl_type())),
         EntryPointAccess::Public,
         EntryPointType::Contract,
     );
@@ -94,30 +91,32 @@ pub extern "C" fn call() {
     let (contract_hash, _) = storage::new_locked_contract(entry_points, None, None, None);
     runtime::put_key("mycontract", contract_hash.into());
 
-    let return_dic_uref: URef =
+    let vec_urefs: Vec<URef> =
         runtime::call_contract(contract_hash, "test", RuntimeArgs::default());
 
     // get vec1
-    let return_vec1_uref: URef = storage::dictionary_get(return_dic_uref, "vec1")
+    // get mem1
+    let return_mem1: Obj = storage::dictionary_get(vec_urefs[0], "mem1")
         .unwrap()
         .unwrap();
-    let return_mem1: Obj = storage::dictionary_get(return_vec1_uref, "mem1")
-        .unwrap()
-        .unwrap();
+    runtime::put_key("mem1", storage::new_uref(return_mem1).into());
 
-    let return_mem2: Obj = storage::dictionary_get(return_vec1_uref, "mem2")
+    // get mem2
+    let return_mem2: Obj = storage::dictionary_get(vec_urefs[0], "mem2")
         .unwrap()
         .unwrap();
+    runtime::put_key("mem2", storage::new_uref(return_mem2).into());
 
     // get vec2
-    let return_vec2_uref: URef = storage::dictionary_get(return_dic_uref, "vec2")
+    // get mem3
+    let return_mem3: Obj = storage::dictionary_get(vec_urefs[1], "mem3")
         .unwrap()
         .unwrap();
-    let return_mem3: Obj = storage::dictionary_get(return_vec2_uref, "mem3")
-        .unwrap()
-        .unwrap();
+    runtime::put_key("mem3", storage::new_uref(return_mem3).into());
 
-    let return_mem4: Obj = storage::dictionary_get(return_vec2_uref, "mem4")
+    // get mem4
+    let return_mem4: Obj = storage::dictionary_get(vec_urefs[1], "mem4")
         .unwrap()
         .unwrap();
+    runtime::put_key("mem4", storage::new_uref(return_mem4).into());
 }
