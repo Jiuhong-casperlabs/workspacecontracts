@@ -15,6 +15,7 @@ build-contract:
 	cargo build --release -p return_resulttype --target wasm32-unknown-unknown
 	cargo build --release -p storelist --target wasm32-unknown-unknown
 	cargo build --release -p storemap --target wasm32-unknown-unknown
+	cargo build --release -p storebytearray --target wasm32-unknown-unknown
 	cargo build --release -p uref --target wasm32-unknown-unknown
 	cargo build --release -p dictionary --target wasm32-unknown-unknown
 	cargo build --release -p dictionarya --target wasm32-unknown-unknown
@@ -23,6 +24,7 @@ build-contract:
 	cargo build --release -p storemultiple --target wasm32-unknown-unknown
 	cargo build --release -p vecofstruct --target wasm32-unknown-unknown
 	cargo build --release -p mapofstructvec --target wasm32-unknown-unknown
+	cargo build --release -p dicofstructvec --target wasm32-unknown-unknown
 	wasm-strip target/wasm32-unknown-unknown/release/listkeys.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/storetuple.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/accessright.wasm 2>/dev/null | true
@@ -36,6 +38,7 @@ build-contract:
 	wasm-strip target/wasm32-unknown-unknown/release/return_resulttype.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/storelist.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/storemap.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/storebytearray.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/uref.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/dictionary.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/dictionarya.wasm 2>/dev/null | true
@@ -45,6 +48,8 @@ build-contract:
 	wasm-strip target/wasm32-unknown-unknown/release/storemultiple.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/vecofstruct.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/mapofstructvec.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/dicofstructvec.wasm 2>/dev/null | true
+	
 
 clippy:
 	cargo clippy --all-targets --all -- -D warnings -A renamed_and_removed_lints
