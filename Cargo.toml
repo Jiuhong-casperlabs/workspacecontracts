@@ -23,7 +23,8 @@ members = [
     "contracts/dictionarya",
     "contracts/dictionaries",
     "contracts/testpackage",
-    "contracts/storemultiple"]
+    "contracts/storemultiple",
+    "contracts/inficltype"]
 
 [profile.release]
 lto = true 
