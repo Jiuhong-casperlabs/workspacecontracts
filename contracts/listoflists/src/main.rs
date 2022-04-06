@@ -16,9 +16,9 @@ pub extern "C" fn call() {
     let mut value1 = vec![12, 3, 4];
     let value2 = vec![22, 333, 44];
 
-    a.push(value1);
-    a.push(value2);
-
+    // a.push(value1);
+    // a.push(value2);
+    a = vec![value1, value2];
     let value3 = vec![5, 6, 7];
     a.push(value3);
     runtime::put_key("listoflists", storage::new_uref(a).into());
