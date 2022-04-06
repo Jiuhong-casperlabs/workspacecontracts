@@ -21,5 +21,7 @@ pub extern "C" fn call() {
     a = vec![value1, value2];
     let value3 = vec![5, 6, 7];
     a.push(value3);
+    let result = a[0][1];
+    a[0][2] = 9;
     runtime::put_key("listoflists", storage::new_uref(a).into());
 }
