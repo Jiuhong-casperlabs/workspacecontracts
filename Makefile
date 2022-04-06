@@ -26,6 +26,7 @@ build-contract:
 	cargo build --release -p mapofstructvec --target wasm32-unknown-unknown
 	cargo build --release -p dicofstructvec --target wasm32-unknown-unknown
 	cargo build --release -p inficltype --target wasm32-unknown-unknown
+	cargo build --release -p listoflists --target wasm32-unknown-unknown
 	wasm-strip target/wasm32-unknown-unknown/release/listkeys.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/storetuple.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/accessright.wasm 2>/dev/null | true
@@ -51,6 +52,8 @@ build-contract:
 	wasm-strip target/wasm32-unknown-unknown/release/mapofstructvec.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/dicofstructvec.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/inficltype.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/listoflists.wasm 2>/dev/null | true
+	
 	
 
 clippy:
