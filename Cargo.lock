@@ -89,9 +89,9 @@ checksum = "14c189c53d098945499cdfa7ecc63567cf3886b3332b312a5b4585d8d3a6a610"
 
 [[package]]
 name = "casper-contract"
-version = "1.4.3"
+version = "1.4.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e4e145bb5b2cde2f0c76b8571a03ef8a6de37616ef0e6e4b8a9bac937ff39c40"
+checksum = "790b76807d64788758208757b0a17970bf756cb7c392f55b1a22021a34f95991"
 dependencies = [
  "casper-types",
  "hex_fmt",
@@ -100,9 +100,9 @@ dependencies = [
 
 [[package]]
 name = "casper-types"
-version = "1.4.6"
+version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e9da1776d44d053d9b60040b7e70b448ce34608762e989cc1106d083125bf200"
+checksum = "a13e82a13d1784104fd021a38da56c69da94e84b26b03c2cf3d8da3895a16c8c"
 dependencies = [
  "base16",
  "base64",
@@ -222,6 +222,22 @@ dependencies = [
 
 [[package]]
 name = "dictionarya"
+version = "0.1.0"
+dependencies = [
+ "casper-contract",
+ "casper-types",
+]
+
+[[package]]
+name = "dictofmaps"
+version = "0.1.0"
+dependencies = [
+ "casper-contract",
+ "casper-types",
+]
+
+[[package]]
+name = "dictoftuples"
 version = "0.1.0"
 dependencies = [
  "casper-contract",
@@ -404,6 +420,22 @@ dependencies = [
 
 [[package]]
 name = "listoflists"
+version = "0.1.0"
+dependencies = [
+ "casper-contract",
+ "casper-types",
+]
+
+[[package]]
+name = "listofmaps"
+version = "0.1.0"
+dependencies = [
+ "casper-contract",
+ "casper-types",
+]
+
+[[package]]
+name = "listoftuples"
 version = "0.1.0"
 dependencies = [
  "casper-contract",

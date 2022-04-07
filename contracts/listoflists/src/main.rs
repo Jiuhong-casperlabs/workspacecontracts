@@ -18,10 +18,15 @@ pub extern "C" fn call() {
 
     // a.push(value1);
     // a.push(value2);
-    a = vec![value1, value2];
+    a = vec![value1.clone(), value2.clone()];
     let value3 = vec![5, 6, 7];
     a.push(value3);
     let result = a[0][1];
     a[0][2] = 9;
-    runtime::put_key("listoflists", storage::new_uref(a).into());
+
+    let b = vec![value1, value2];
+
+    let c = vec![a, b];
+    let d = c[0][0][0];
+    runtime::put_key("listoflists", storage::new_uref(c).into());
 }

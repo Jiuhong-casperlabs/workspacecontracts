@@ -25,7 +25,11 @@ members = [
     "contracts/testpackage",
     "contracts/storemultiple",
     "contracts/inficltype",
-    "contracts/listoflists"]
+    "contracts/listoflists",
+    "contracts/listofmaps",
+    "contracts/listoftuples",
+    "contracts/dictofmaps",
+    "contracts/dictoftuples"]
 
 [profile.release]
 lto = true 
