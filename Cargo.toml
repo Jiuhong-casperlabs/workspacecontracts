@@ -29,7 +29,8 @@ members = [
     "contracts/listofmaps",
     "contracts/listoftuples",
     "contracts/dictofmaps",
-    "contracts/dictoftuples"]
+    "contracts/dictoftuples",
+    "contracts/dictofdict"]
 
 [profile.release]
 lto = true 

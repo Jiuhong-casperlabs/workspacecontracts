@@ -229,6 +229,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "dictofdict"
+version = "0.1.0"
+dependencies = [
+ "casper-contract",
+ "casper-types",
+]
+
+[[package]]
 name = "dictofmaps"
 version = "0.1.0"
 dependencies = [
