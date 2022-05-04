@@ -1,7 +1,13 @@
 casper-client put-deploy --chain-name casper-test \
 -n http://16.162.124.124:7777 \
 --secret-key /home/jh/keys/test1/secret_key.pem \
---session-path /home/jh/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/dictofdict.wasm \
+--session-path /home/jh/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/struct.wasm \
+--payment-amount 70000000000
+
+casper-client put-deploy --chain-name casper-test \
+-n http://16.162.124.124:7777 \
+--secret-key /home/jh/keys/test1/secret_key.pem \
+--session-path /home/jh/mywork/contractsworkspace/target/wasm32-unknown-unknown/release/gettokenbyindex.wasm \
 --payment-amount 1000000000
 
 

@@ -11,6 +11,7 @@ members = [
     "contracts/multiplemaps",
     "contracts/multipletuples",
     "contracts/vecofstruct",
+    "contracts/struct",
     "contracts/dicofstructvec",
     "contracts/mapofstructvec",
     "contracts/remove_key",
@@ -30,7 +31,9 @@ members = [
     "contracts/listoftuples",
     "contracts/dictofmaps",
     "contracts/dictoftuples",
-    "contracts/dictofdict"]
+    "contracts/dictofdict",
+    "contracts/gettokenbyindex",
+    "contracts/serialization"]
 
 [profile.release]
 lto = true 
