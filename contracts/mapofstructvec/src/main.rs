@@ -1,9 +1,6 @@
 #![no_std]
 #![no_main]
 
-#[cfg(not(target_arch = "wasm32"))]
-compile_error!("target arch should be wasm32: compile with '--target wasm32-unknown-unknown'");
-
 // We need to explicitly import the std alloc crate and `alloc::string::String` as we're in a
 // `no_std` environment.
 extern crate alloc;
@@ -19,7 +16,7 @@ use alloc::string::{String, ToString};
 use casper_contract::{
     contract_api::{
         runtime,
-        storage::{self, read},
+        storage::{self},
     },
     unwrap_or_revert::UnwrapOrRevert,
 };
@@ -65,13 +62,9 @@ fn test() {
         ),
     };
 
-    let mut vec1 = Vec::new();
-    vec1.push(mem1);
-    vec1.push(mem2);
+    let vec1 = vec![mem1, mem2];
 
-    let mut vec2 = Vec::new();
-    vec2.push(mem3);
-    vec2.push(mem4);
+    let vec2 = vec![mem3, mem4];
 
     let mut map = BTreeMap::new();
 

@@ -1,16 +1,12 @@
 #![no_std]
 #![no_main]
 
-#[cfg(not(target_arch = "wasm32"))]
-compile_error!("target arch should be wasm32: compile with '--target wasm32-unknown-unknown'");
-
 // We need to explicitly import the std alloc crate and `alloc::string::String` as we're in a
 // `no_std` environment.
 extern crate alloc;
 
 use core::convert::TryInto;
 
-use alloc::boxed::Box;
 use alloc::vec;
 use alloc::vec::Vec;
 
@@ -19,14 +15,12 @@ use alloc::string::String;
 use casper_contract::{
     contract_api::{
         runtime,
-        storage::{self, read},
+        storage::{self},
     },
     unwrap_or_revert::UnwrapOrRevert,
 };
-use casper_types::{
-    CLType, EntryPoint, EntryPointAccess, EntryPointType, EntryPoints, RuntimeArgs, URef,
-};
-use casper_types::{CLTyped, CLValue, Key};
+use casper_types::{CLTyped, CLValue};
+use casper_types::{EntryPoint, EntryPointAccess, EntryPointType, EntryPoints, RuntimeArgs, URef};
 use casper_types_derive::{CLTyped, FromBytes, ToBytes};
 
 #[derive(CLTyped, ToBytes, FromBytes)]
@@ -51,9 +45,7 @@ fn test() {
         ),
     };
 
-    let mut vec = Vec::new();
-    vec.push(mem1);
-    vec.push(mem2);
+    let vec = vec![mem1, mem2];
 
     runtime::ret(CLValue::from_t(vec).unwrap_or_revert());
 }
@@ -80,5 +72,5 @@ pub extern "C" fn call() {
 
     // get value again
     let getkey: URef = runtime::get_key("returnvalue").unwrap().try_into().unwrap();
-    let getvalue: Vec<Obj> = storage::read(getkey).unwrap().unwrap();
+    let _getvalue: Vec<Obj> = storage::read(getkey).unwrap().unwrap();
 }

@@ -6,5 +6,15 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-casper-contract = "1.4.3"
-casper-types = "1.4.6"
+casper-contract = "1.4"
+casper-types = "1.5"
+
+[[bin]]
+name = "listoflists"
+bench = false
+test = false
+doctest = false
+
+[profile.release]
+codegen-units = 1
+lto = true

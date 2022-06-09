@@ -4,11 +4,10 @@
 // We need to explicitly import the std alloc crate and `alloc::string::String` as we're in a
 // `no_std` environment.
 extern crate alloc;
+use alloc::collections::BTreeMap;
 use alloc::vec::Vec;
-use alloc::{collections::BTreeMap, vec};
 
 use casper_contract::contract_api::{runtime, storage};
-use casper_types::Key;
 
 #[no_mangle]
 pub extern "C" fn call() {

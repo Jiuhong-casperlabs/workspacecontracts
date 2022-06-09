@@ -33,5 +33,5 @@ pub extern "C" fn call() {
     let balances: U256 = runtime::call_contract(contract_hash, "balance_of", args);
     runtime::put_key("mybalance", storage::new_uref(balances).into());
 
-    U256::from(999999999);
+    // U256::from(999999999);
 }

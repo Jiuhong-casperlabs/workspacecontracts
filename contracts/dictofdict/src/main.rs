@@ -6,11 +6,11 @@
 extern crate alloc;
 
 use alloc::string::String;
+use alloc::vec;
 use alloc::vec::Vec;
-use alloc::{collections::BTreeMap, vec};
 
 use casper_contract::contract_api::{runtime, storage};
-use casper_types::{Key, URef, U512};
+use casper_types::{URef, U512};
 
 #[no_mangle]
 pub extern "C" fn call() {
