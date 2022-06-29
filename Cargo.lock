@@ -1037,6 +1037,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "storelistofcontracts"
+version = "0.1.0"
+dependencies = [
+ "casper-contract",
+ "casper-types",
+]
+
+[[package]]
 name = "storemap"
 version = "0.1.0"
 dependencies = [

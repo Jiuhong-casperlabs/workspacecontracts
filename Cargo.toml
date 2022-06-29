@@ -34,7 +34,8 @@ members = [
     "contracts/dictofdict",
     "contracts/gettokenbyindex",
     "contracts/serialization",
-    "contracts/publickeytoaccounthash"]
+    "contracts/publickeytoaccounthash",
+    "contracts/storelistofcontracts"]
 
 [profile.release]
 lto = true 

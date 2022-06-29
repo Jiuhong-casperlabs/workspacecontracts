@@ -36,6 +36,7 @@ build-contract:
 	cargo build --release -p gettokenbyindex --target wasm32-unknown-unknown
 	cargo build --release -p serialization --target wasm32-unknown-unknown
 	cargo build --release -p publickeytoaccounthash --target wasm32-unknown-unknown
+	cargo build --release -p storelistofcontracts --target wasm32-unknown-unknown
 	wasm-strip target/wasm32-unknown-unknown/release/listkeys.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/storetuple.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/accessright.wasm 2>/dev/null | true
@@ -71,6 +72,7 @@ build-contract:
 	wasm-strip target/wasm32-unknown-unknown/release/gettokenbyindex.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/serialization.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/publickeytoaccounthash.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/storelistofcontracts.wasm 2>/dev/null | true
 	
 	
 

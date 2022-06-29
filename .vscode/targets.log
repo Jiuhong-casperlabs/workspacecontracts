@@ -8,12 +8,14 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jun  9 10:57:26 2022
+# Make data base, printed on Wed Jun 29 09:04:20 2022
 
 # Variables
 
 # environment
 LC_ALL = C
+# environment
+SDKMAN_PLATFORM = linuxx64
 # environment
 PULSE_SERVER = /mnt/wslg/PulseServer
 # environment
@@ -61,7 +63,7 @@ CURDIR := /home/jh/mywork/contractsworkspace
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # automatic
@@ -82,12 +84,16 @@ MAKEFILE_LIST := Makefile
 @F = $(notdir $@)
 # environment
 VSCODE_VERBOSE_LOGGING = true
+# environment
+SDKMAN_DIR = /home/jh/.sdkman
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
 WT_PROFILE_ID = {3bf3258e-193f-48de-8ea5-ff789190fc7a}
 # automatic
 *F = $(notdir $*)
+# environment
+SDKMAN_VERSION = 5.15.0
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
@@ -105,7 +111,7 @@ MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-PATH = /home/jh/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/bin/remote-cli:/home/jh/.local/bin:/home/jh/.nvm/versions/node/v18.0.0/bin:/home/jh/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Python310/Scripts/:/mnt/c/Python310/:/mnt/c/Python39/Scripts/:/mnt/c/Python39/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/OpenJDK/openjdk-8u312-b07/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files (x86)/GnuWin32/bin:/mnt/c/Program Files/OpenJDK/openjdk-8u312-b07/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Android/platform-tools:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Calibre2/:/mnt/c/Program Files/CMake/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/Administrator/.cargo/bin:/mnt/c/Users/Administrator/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Administrator/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/Bandizip/:/mnt/c/Users/Administrator/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Administrator/AppData/Local/Programs/oh-my-posh/bin:/mnt/c/Users/Administrator/AppData/Local/Programs/oh-my-posh/themes:/mnt/c/Users/Administrator/AppData/Roaming/npm:/snap/bin:/bin:/home/jh/go/bin:/usr/local/go/bin
+PATH = /home/jh/.vscode-server/bin/30d9c6cd9483b2cc586687151bcbcd635f373630/bin/remote-cli:/home/jh/.local/bin:/home/jh/.sdkman/candidates/gradle/current/bin:/home/jh/.nvm/versions/node/v18.0.0/bin:/home/jh/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Python310/Scripts/:/mnt/c/Python310/:/mnt/c/Python39/Scripts/:/mnt/c/Python39/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/OpenJDK/openjdk-8u312-b07/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files (x86)/GnuWin32/bin:/mnt/c/Program Files/OpenJDK/openjdk-8u312-b07/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Android/platform-tools:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Calibre2/:/mnt/c/Program Files/CMake/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/Administrator/.cargo/bin:/mnt/c/Users/Administrator/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Administrator/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/Bandizip/:/mnt/c/Users/Administrator/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Administrator/AppData/Local/Programs/oh-my-posh/bin:/mnt/c/Users/Administrator/AppData/Local/Programs/oh-my-posh/themes:/mnt/c/Users/Administrator/AppData/Roaming/npm:/snap/bin:/bin:/home/jh/go/bin:/usr/local/go/bin
 # default
 MAKEFILES := 
 # environment
@@ -113,7 +119,11 @@ MOTD_SHOWN = update-motd
 # automatic
 ^F = $(notdir $^)
 # environment
-WT_SESSION = cb16904b-48a2-40b9-a886-6f915d808cd4
+SDKMAN_CANDIDATES_DIR = /home/jh/.sdkman/candidates
+# environment
+GRADLE_HOME = /home/jh/.sdkman/candidates/gradle/current
+# environment
+WT_SESSION = d424b4ca-72a0-4771-8599-e946a1536cc9
 # environment
 VSCODE_LOG_NATIVE = false
 # environment
@@ -151,11 +161,13 @@ _ = /mnt/c/Users/Administrator/AppData/Local/Programs/Microsoft VS Code/bin/code
 # environment
 XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-48b9273a-d838-457f-9a2a-170c201678e8.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-c17e82a5-2d84-47cb-a8fa-2e2588ece11d.sock
 # environment
 NVM_CD_FLAGS = 
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+SDKMAN_CANDIDATES_API = https://api.sdkman.io/2
 # environment
 HOME = /home/jh
 # environment
@@ -171,7 +183,7 @@ WSL_DISTRO_NAME = Ubuntu
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # variable set hash-table stats:
-# Load=79/1024=8%, Rehash=0, Collisions=2/109=2%
+# Load=85/1024=8%, Rehash=0, Collisions=2/115=2%
 
 # Pattern-specific Variable Values
 
@@ -193,14 +205,14 @@ lint: clippy
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 	cargo fmt --all
 	
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-04 19:04:10.915461808
+#  Last modified 2022-06-09 11:00:38.354455514
 #  File has been updated.
 #  Successfully updated.
 
@@ -208,7 +220,7 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 85):
+#  recipe to execute (from 'Makefile', line 87):
 	cargo clean
 	rm -rf target
 	rm Cargo.lock
@@ -251,6 +263,7 @@ build-contract:
 	cargo build --release -p dictofdict --target wasm32-unknown-unknown
 	cargo build --release -p gettokenbyindex --target wasm32-unknown-unknown
 	cargo build --release -p serialization --target wasm32-unknown-unknown
+	cargo build --release -p publickeytoaccounthash --target wasm32-unknown-unknown
 	wasm-strip target/wasm32-unknown-unknown/release/listkeys.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/storetuple.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/accessright.wasm 2>/dev/null | true
@@ -270,6 +283,7 @@ build-contract:
 	wasm-strip target/wasm32-unknown-unknown/release/dictionarya.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/newdicc.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/newdica.wasm 2>/dev/null | true
+ 
 	wasm-strip target/wasm32-unknown-unknown/release/testpackage.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/storemultiple.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/vecofstruct.wasm 2>/dev/null | true
@@ -279,13 +293,13 @@ build-contract:
 	wasm-strip target/wasm32-unknown-unknown/release/inficltype.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/listoflists.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/listofmaps.wasm 2>/dev/null | true
- 
 	wasm-strip target/wasm32-unknown-unknown/release/listoftuples.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/dictofmaps.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/dictoftuples.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/dictofdict.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/gettokenbyindex.wasm 2>/dev/null | true
 	wasm-strip target/wasm32-unknown-unknown/release/serialization.wasm 2>/dev/null | true
+	wasm-strip target/wasm32-unknown-unknown/release/publickeytoaccounthash.wasm 2>/dev/null | true
 	
 	
 
@@ -293,14 +307,14 @@ check-lint: clippy
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 79):
+#  recipe to execute (from 'Makefile', line 81):
 	cargo fmt --all -- --check
 
 clippy:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 76):
+#  recipe to execute (from 'Makefile', line 78):
 	cargo clippy --all-targets --all -- -D warnings -A renamed_and_removed_lints
 
 # Not a target:
@@ -337,6 +351,6 @@ prepare:
 # strcache performance: lookups = 37 / hit rate = 32%
 # hash-table stats:
 # Load=25/8192=0%, Rehash=0, Collisions=0/37=0%
-# Finished Make data base on Thu Jun  9 10:57:26 2022
+# Finished Make data base on Wed Jun 29 09:04:20 2022
 
  
